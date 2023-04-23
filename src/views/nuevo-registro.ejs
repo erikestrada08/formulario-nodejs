@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/header') %>
+    <title>Agregar Usuario</title>
+</head>
+<body>
+    <header>
+        <%- include('partials/navigation') %>
+    </header>
+    <div class="container p-4">
+        <form method="POST" action="/" class="card card-body">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Nombre" name="nombre" autofocus required>
+                <label for="floatingInput" >Nombre </label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Cédula" required name="cedula">
+                <label for="floatingInput">Cédula </label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Teléfono" required name="telefono">
+                <label for="floatingInput">Teléfono</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+
+    <!-- mensajes de validaciones -->
+    <% if(typeof validaciones != 'undefined') { %>
+
+        <% validaciones.forEach((validacion) => { %>
+
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong><%= validacion.msg %></strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <% }) %>
+
+    <% } %>
+    <footer class="bg-light py-3 col-md-12 col-sm-12 col-lg-12 fixed-bottom">
+        <%- include('partials/footer') %>
+    </footer>
+</body>
+</html>
+
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/header') %>
+    <title>Usuarios</title>
+</head>
+
+<body>
+    <header>
+        <%- include('partials/navigation') %>
+    </header>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Cédula</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% usuarios.forEach(function(usuario) { %>
+                    <tr>
+                        <td><%= usuario.nombre %></td>
+                        <td><%= usuario.cedula %></td>
+                        <td><%= usuario.telefono %></td>
+                        <td><a href="/delete/<%= usuario.id %>" class="btn btn-danger">Eliminar</a></td>
+                    </tr>
+                <% }) %>
+                
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="bg-light py-3 col-md-12 col-sm-12 col-lg-12 fixed-bottom">
+        <%- include('partials/footer') %>
+    </footer>
+</body>
+
+</html>
